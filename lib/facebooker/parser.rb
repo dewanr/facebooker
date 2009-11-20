@@ -589,6 +589,12 @@ module Facebooker
       element('sms_canSend_response', data).content.strip
     end
   end
+  
+  class LiveMessageSend < Parser#:nodoc
+    def self.process(data)
+      element('liveMessage_send_response', data).content.strip
+    end
+  end
 
   class Errors < Parser#:nodoc:
     EXCEPTIONS = {
@@ -711,7 +717,8 @@ module Facebooker
       'facebook.data.setUserPreference' => SetPreference,
       'facebook.video.upload' => UploadVideo,
       'facebook.sms.send' => SmsSend,
-      'facebook.sms.canSend' => SmsCanSend
+      'facebook.sms.canSend' => SmsCanSend,
+      'facebook.liveMessage.send' => LiveMessageSend
     }
   end
 end
