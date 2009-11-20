@@ -593,7 +593,7 @@ module Facebooker
   class LiveMessageSend < Parser#:nodoc
     def self.process(data)
       element('liveMessage_send_response', data).content.strip
-    end
+    end 
   end
 
   class Errors < Parser#:nodoc:
